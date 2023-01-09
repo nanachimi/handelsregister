@@ -18,7 +18,6 @@ schlagwortOptionen = {
     "exact": 3
 }
 
-
 class GermanTradeRegister:
     def __init__(self, search_query, debug: bool, cache: bool):
         self.search_args = search_query
@@ -42,7 +41,7 @@ class GermanTradeRegister:
                 "User-Agent",
                 "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.5 Safari/605.1.15",
             ),
-            ("Accept-Language", "de-DE,en;q=0.9"),
+            ("Accept-Language", "en-GB,en;q=0.9"),
             ("Accept-Encoding", "gzip, deflate, br"),
             (
                 "Accept",
@@ -83,7 +82,8 @@ class GermanTradeRegister:
         else:
             # TODO implement token bucket to abide by rate limit
             # Use an atomic counter: https://gist.github.com/benhoyt/8c8a8d62debe8e5aa5340373f9c509c7
-            self.browser.follow_link(text="Erweiterte Suche")
+            # self.browser.follow_link(text="Erweiterte Suche")
+            self.browser.follow_link(text="Advanced search")
 
             if self.debug_mode:
                 print(self.browser.title())
